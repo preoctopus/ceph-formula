@@ -100,8 +100,8 @@ populate_mon:
 
 start_mon:
   cmd.run:
-    - name: start ceph-mon id={{ ceph_settings.minion_id }} cluster={{ ceph_settings.cluster }}
-    - unless: status ceph-mon id={{ ceph_settings.minion_id }} cluster={{ ceph_settings.cluster }}
+    - name: /etc/init.d/ceph start mon.{{ ceph_settings.minion_id }} --cluster {{ ceph_settings.cluster }}
+    - unless: /etc/init.d/ceph status mon.{{ ceph_settings.minion_id }} --cluster {{ ceph_settings.cluster }}
     - require:
       - cmd: populate_mon
 
