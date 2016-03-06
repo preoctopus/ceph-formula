@@ -119,5 +119,5 @@ cp.push {{ ceph_settings.bootstrap_osd_keyring }}:
     - watch:
       - cmd: osd_keyring_wait
 
-/var/lib/ceph/mon/{{ ceph_settings.cluster }}-{{ ceph_settings.minion_id }}/upstart:
+/var/lib/ceph/mon/{{ ceph_settings.cluster }}-{{ ceph_settings.minion_id }}/sysvinit:
   file.touch: []
